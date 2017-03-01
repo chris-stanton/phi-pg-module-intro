@@ -46,7 +46,7 @@ router.post('/new', function(req, res){
     } else {
       // We connected to the database!!!
       // Now, we're gonna' git stuff!!!!!
-      client.query('INSERT INTO books (title, author) VALUES ($1, $2);', [newBook.title, newBook.author], function(errorMakingQuery, result){
+      client.query('INSERT INTO books (title, author, edition, publisher) VALUES ($1, $2, $3, $4);', [newBook.title, newBook.author, newBook.edition, newBook.publisher], function(errorMakingQuery, result){
         done();
         if(errorMakingQuery) {
           console.log('Error making the database query: ', errorMakingQuery);
